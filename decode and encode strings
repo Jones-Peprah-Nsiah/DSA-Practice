@@ -1,0 +1,35 @@
+#271. Encode and Decode Strings
+# https://leetcode.com/problems/encode-and-decode-strings/
+#
+# Time Complexity:
+# encode: O(n)
+# decode: O(n)
+#
+# Space Complexity: O(n)
+
+from typing import List
+
+class Codec:
+
+    def encode(self, strs: List[str]) -> str:
+        res=""
+        for s in strs:
+            res+=str(len(s))+"#"+s
+        return res
+    
+    def decode(self, s: str) -> List[str]:
+        res ,i =[],0
+        while i<len(s):
+            j=1
+            while s[j]!="#":
+                j+=1
+            i=j+1
+            length=int(s[i:j])
+            j=i+length
+        res.appnd(length)
+        i=j
+
+
+
+
+
