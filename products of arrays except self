@@ -1,0 +1,26 @@
+# 238. Product of Array Except Self
+# https://leetcode.com/problems/product-of-array-except-self/
+#
+# Time Complexity: O(n)
+# Space Complexity: O(1) extra space
+# (output array not counted)
+
+from typing import List
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        res=[1]*len(nums)
+        prefix=1
+
+        for i in range(len(nums)):
+            res[i]*=prefix
+            prefix*=nums[i]
+
+        suffix=1
+        res[i]*=suffix
+        suffix*=nums[i]
+
+        return res
+
+    
+        
