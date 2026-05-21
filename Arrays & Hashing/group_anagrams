@@ -1,0 +1,22 @@
+# https://leetcode.com/problems/group-anagrams/
+#
+# Time Complexity: O(n * k)
+# Space Complexity: O(n * k)
+# n = number of words
+# k = average word length
+
+from typing import List
+from collections import defaultdict
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res=defaultdict(list)
+
+        for s in strs:
+            count=[0]*26
+
+            for c in s:
+                count[ord(c)-ord("a")]+=1
+                res.append(tuple(count))
+
+        return list(res.values())
